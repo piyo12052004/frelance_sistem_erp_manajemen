@@ -21,17 +21,19 @@ class Locale
      */
     public function handle($request, Closure $next)
     {
+        $default = 'en';
+
         if (Schema::hasTable('languages')) {
-            $language_default = Language::query()
+            $language = Language::query()
                 ->whereIsDefault(Language::IS_DEFAULT)
-                ->first('code');
+                ->first();
+
+            $default = $language?->code ?? 'en';
         }
 
-        // $code = Session::get('code');
+        $locale = session('locale', $default);
 
-        $code = request()->cookie('lang', $language_default['code'] ?? 'en');
-
-        App::setLocale($code);
+        App::setLocale($locale);
 
         return $next($request);
     }

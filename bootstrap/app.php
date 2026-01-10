@@ -24,7 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->redirectGuestsTo('/login');
 
-        // $middleware->append(Locale::class);
+        $middleware->append(Locale::class);
 
         // $middleware->validateSignatures(except: [
         //     '/api/*',

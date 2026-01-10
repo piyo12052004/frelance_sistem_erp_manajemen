@@ -51,7 +51,7 @@
 
             <livewire:customers.create lazy />
 
-            <x-settings-bar />
+            {{-- <x-settings-bar /> --}}
 
         </div>
     </div>

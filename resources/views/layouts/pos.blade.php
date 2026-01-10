@@ -60,7 +60,7 @@
 
             <livewire:customers.create />
 
-            <x-settings-bar />
+            {{-- <x-settings-bar /> --}}
 
         </div>
     </div>
