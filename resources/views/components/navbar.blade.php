@@ -17,7 +17,7 @@
             <x-button-fullscreen />
         </div>
 
-        <x-language-dropdown />
+        {{-- <x-language-dropdown /> --}}
 
         @can('show_notifications')
             <div class="md:flex hidden flex-wrap items-center">
@@ -34,7 +34,7 @@
                 @click="toggleRtl">
                 <a x-show="!isRtl" aria-hidden="true" class="font-bold text-md"> LTR </a>
                 <a x-show="isRtl" aria-hidden="true" class="font-bold text-md"> RTL </a>
-            </x-button> 
+            </x-button>
             --}}
 
         <ul class="flex-col md:flex-row list-none items-center md:flex">

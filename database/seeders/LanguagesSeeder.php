@@ -18,6 +18,13 @@ class LanguagesSeeder extends Seeder
     {
         Language::insert([
             [
+                'id'         => 4,
+                'name'       => 'Indonesia',
+                'code'       => 'In',
+                'status'     => 1,
+                'is_default' => true,
+            ],
+            [
                 'id'         => 1,
                 'name'       => 'English',
                 'code'       => 'en',
@@ -36,7 +43,7 @@ class LanguagesSeeder extends Seeder
                 'name'       => 'French',
                 'code'       => 'fr',
                 'status'     => 1,
-                'is_default' => true,
+                'is_default' => false,
             ],
         ]);
     }

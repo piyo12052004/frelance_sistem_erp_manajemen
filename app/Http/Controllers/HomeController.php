@@ -247,7 +247,11 @@ class HomeController extends Controller
 
     public function changeLanguage($locale)
     {
-        Cookie::queue('lang', $locale);
+        if (! in_array($locale, ['id', 'en', 'fr', 'ar'])) {
+            abort(400);
+        }
+
+        session()->put('locale', $locale);
 
         return redirect()->back();
     }

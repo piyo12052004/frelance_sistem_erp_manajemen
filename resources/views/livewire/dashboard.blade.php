@@ -162,7 +162,7 @@
         @endcan
 
     </div>
-    
+
     @can('dashboard_access')
         <livewire:stats.transactions />
     @endcan

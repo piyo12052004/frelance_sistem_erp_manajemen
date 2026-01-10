@@ -75,7 +75,7 @@
                             {{ $slot }}
                         @endisset
                     </x-card>
-                    <x-settings-bar />
+                    {{-- <x-settings-bar /> --}}
 
                 </main>
 
