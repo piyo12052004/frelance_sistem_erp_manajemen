@@ -17,24 +17,29 @@
                     <x-label for="permissions" :value="__('Permissions')" />
                     <div class="flex items-center justify-center w-full gap-4 mb-3">
                         <div>
-                            <input type="checkbox" id="select-all" wire:click="selectAllPermissions"
-                                {{ $this->isAllSelected ? 'checked' : '' }}>
+                            <input type="checkbox" id="select-all" wire:model="isAllSelected"
+                                wire:change="selectAllPermissions">
+                            {{-- <input type="checkbox" id="select-all" wire:click="selectAllPermissions"
+                                {{ $this->isAllSelected ? 'checked' : '' }}> --}}
                             <label for="select-all" class="ml-2">{{ __('Select All') }}</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="deselectAll" wire:click="deselectAllPermissions"
-                                {{ $this->isNoneSelected ? 'checked' : '' }}>
+                            <input type="checkbox" id="deselectAll" wire:model="isNoneSelected"
+                                wire:change="deselectAllPermissions">
+                            {{-- <input type="checkbox" id="deselectAll" wire:click="deselectAllPermissions"
+                                {{ $this->isNoneSelected ? 'checked' : '' }}> --}}
                             <label for="deselectAll" class="ml-2">{{ __('Deselect All') }}</label>
                         </div>
                     </div>
                     <div class="py-2 grid grid-cols-3 gap-6">
-                        @foreach ($this->permissions as $permission)
+                        @foreach ($permissions as $permission)
                             <div>
                                 <input type="checkbox" id="permission-{{ $permission->id }}"
-                                    wire:model.live="selectedPermissions" value="{{ $permission->id }}"
-                                    {{ in_array($permission->id, $selectedPermissions) ? 'checked' : '' }}>
-                                <label for="permission-{{ $permission->id }}">{{ $permission->name }}</label>
+                                    wire:model.live="selectedPermissions" value="{{ $permission->id }}">
+                                <label for="permission-{{ $permission->id }}">
+                                    {{ $permission->name }}
+                                </label>
                             </div>
                         @endforeach
                     </div>

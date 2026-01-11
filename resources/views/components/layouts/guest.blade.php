@@ -42,7 +42,7 @@
     @vite('resources/css/app.css')
 
     @livewireStyles
- 
+
     @stack('styles')
     <style>
         [x-cloak] {
@@ -51,12 +51,12 @@
     </style>
       @vite('resources/js/app.js')
 
-      @livewireScriptConfig 
-      
+      @livewireScriptConfig
+
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      
-  
-        
+
+
+
       @stack('scripts')
 </head>
 
@@ -66,14 +66,14 @@
     @if (settings('body_tags') )
         {!! settings('body_tags')  !!}
     @endif
-    
+
     {{-- <x-loading-mask /> --}}
 
     <section class="relative">
 
-        <x-topheader />
+        {{-- <x-topheader /> --}}
 
-        <x-header vertical /> 
+        <x-header vertical />
 
         {{-- <x-bottomheader /> --}}
 
@@ -89,7 +89,7 @@
 
     </section>
 
-  
+
 </body>
 
 </html>

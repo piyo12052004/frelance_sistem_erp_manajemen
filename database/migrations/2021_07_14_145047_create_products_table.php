@@ -39,6 +39,7 @@ return new class () extends Migration {
             $table->boolean('featured')->default(false);
             $table->boolean('best')->default(false);
             $table->boolean('hot')->default(false);
+            $table->integer('stock_alert')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

@@ -26,14 +26,14 @@ class StockAlertReport extends Component
     #[Computed]
     public function stockAlert()
     {
-        $query = Product::belowStockAlert();
+        $query = Product::query()->belowStockAlert();
 
-        if ($this->filterName) {
-            $query->where('name', 'like', '%'.$this->filterName.'%');
+        if (! empty($this->filterName)) {
+            $query->where('name', 'ilike', '%' . $this->filterName . '%'); // postgres-friendly
         }
 
-        if ($this->filterCode) {
-            $query->where('code', 'like', '%'.$this->filterCode.'%');
+        if (! empty($this->filterCode)) {
+            $query->where('code', 'ilike', '%' . $this->filterCode . '%');
         }
 
         if ($this->filterQuantityMin !== null) {
@@ -44,7 +44,7 @@ class StockAlertReport extends Component
             $query->where('quantity', '<=', $this->filterQuantityMax);
         }
 
-        return $query->paginate();
+        return $query->paginate(10);
     }
 
     public function setThreshold($productId, $threshold)
